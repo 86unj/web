@@ -1,0 +1,6 @@
+init
+- initialize the git repository for current prject (directory)
+add
+- sava the changes temporary
+commit 
+- basic unit for changes

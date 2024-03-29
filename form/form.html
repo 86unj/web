@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="form.css">
+    </head>
+    <body>
+        <h1>HTML form</h1>
+        <div>HTML form</div>
+        <form action="/action_page.php" id="myForm">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname"><br><br>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email"><br><br>
+            
+            <input type="radio" id="male" name="sex" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="sex" value="female">
+            <label for="female">Female</label><br><br>
+
+            <input type="submit" class="button" value="Submit">
+            <input type="reset" class="button" value="Reset"> 
+            <!-- HTML reset -->
+            <input type="button" class="button b" value="Reset2" onclick="resetting()">
+        </form>
+        </div>
+<script src="form.js"></script>
+    </body>
+</html>
