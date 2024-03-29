@@ -4,3 +4,5 @@ add
 - sava the changes temporary
 commit 
 - basic unit for changes
+push
+- push your commits to remote repository (github, etc)
