@@ -17,25 +17,30 @@ body{
 }
 .button-all{
     display: flex;
-    width: 80%;
-    height: 80%;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 320px;
 }
 .button-column{
-    height: 300px;
-    width: 25%;
+    height: 320px;
+    width: 60px;
     display: flex;
     margin: 3px;
     flex-direction: column;
 }
 .number-button{
-    height: 15%;
+    height: 48px;
     margin: 5px 0px;
-    border: 1px solid gray;
 }
 .operator-button{
-    height: 15%;
+    height: 48px;
 }
 .eq-button{
-    height:70%;
+    height: 225px;
+    margin: 5px 0px;
+}
+.clear-button{
+    height: 48px;
     margin: 5px 0px;
 }
