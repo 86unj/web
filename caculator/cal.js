@@ -31,7 +31,6 @@ document.getElementById("equal").addEventListener("click", function() {
         if (result){
         screenField.innerHTML = result;
         }
-        numberArray=[];
         Anumber="";
         i=0;
 });
