@@ -28,7 +28,9 @@ operatorArray.forEach(function(oper) {
 
 document.getElementById("equal").addEventListener("click", function() {
         result=eval(numberArray.join(""));
+        if (result){
         screenField.innerHTML = result;
+        }
         numberArray=[];
         Anumber="";
         i=0;
