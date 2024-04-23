@@ -1,0 +1,60 @@
+.container {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 250px;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+}
+
+.unit{
+    font-size: 40px;
+}
+
+.min-number{
+    font-size: 100px;
+}
+.sec-number{
+    font-size: 100px;
+}
+.bar {
+    background-color: lightgrey;
+    width: 550px;
+    height: 5px;
+    margin: auto;
+}
+.bar-progress {
+    background-color: navy;
+    width: 500px;
+    height:5px;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 5px;
+    margin: 20px 10px;
+}
+.reset-button {
+    height: 40px;
+    width: 100px;
+    margin: 50px;
+    
+}
+.stop-button {
+    height: 40px;
+    width: 100px;
+    margin: 50px;
+}
