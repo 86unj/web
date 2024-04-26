@@ -3,18 +3,25 @@ let minute = document.getElementById("min");
 let stopButton = document.getElementById("stop");
 let time = 10;
 
-document.getElementById("start").addEventListener("click", function () {
-    thisInterval = setInterval(function() { 
-        time -= 1
-        second.innerHTML = time % 60;
-        minute.innerHTML = parseInt(time / 60);
-        if (time ===0){
-            clearInterval(thisInterval)
-            alert("Time is done!")
-        }
+let userInput = 5;
+let userTime = userInput* 60;
+
+
+function timer() { 
+    time -= 1
+    second.innerHTML = time % 60;
+    minute.innerHTML = parseInt(time / 60);
+    if (time ===0){
+        clearInterval(thisInterval)
+        document.getElementById("start").disabled=false;
     }
-        , 1000);
-    
+}
+
+
+document.getElementById("start").addEventListener("click", function () {
+time = userTime;
+document.getElementById("start").disabled=true;
+    thisInterval = setInterval(timer , 1000);// why it doesn't walk with timer()
 });
 
 stopButton.addEventListener("click", function () {
@@ -23,7 +30,7 @@ stopButton.addEventListener("click", function () {
             stopButton.innerHTML = "resume"}
         else{
             stopButton.innerHTML ="stop"
-            thisInterval;
+            thisInterval= setInterval(timer , 1000);
         }
 });
 
@@ -32,6 +39,7 @@ document.getElementById("reset").addEventListener("click", function () {
     time = 5 * 60
     second.innerHTML = time % 60;
     min.innerHTML = parseInt(time / 60);
+    document.getElementById("start").disabled=false;
 });
 
 
