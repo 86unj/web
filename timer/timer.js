@@ -1,11 +1,34 @@
-let element = document.getElementById("time")
-element.innerHTML=59;
+let second = document.getElementById("sec");
+let minute = document.getElementById("min");
+let stopButton = document.getElementById("stop");
+let time = 5 * 60;
 
-document.getElementById("stop").addEventListener("click", function() {
-    clearInterval(thisInterval);
-    document.getElementById("stop").innerHTML = "resume"
+if (time <= 0) {
+    clearInterval}
+
+document.getElementById("start").addEventListener("click", function(){  
+        thisInterval = setInterval(function () {
+            time -= 1
+            second.innerHTML=time%60;
+            minute.innerHTML=parseInt(time/60);
+        }, 1000);
 });
-thisInterval = setInterval(function () {element.innerHTML -= 1}, 1000);
-if (element.innerHTML < 0){
-    clearInterval(thisInterval)
-}
+
+stopButton.addEventListener("click", function() {
+    if (stopButton.innterHTML == "stop"){
+    clearInterval(thisInterval);
+    stopButton.innerHTML = "resume"
+    }
+    else {
+        stopButton.innerHTML = "stop"
+    }
+});
+
+document.getElementById("reset").addEventListener("click", function() {
+    clearInterval(thisInterval);
+    time = 5*60
+    second.innerHTML = time%60;
+    min.innerHTML = parseInt(time/60);
+});
+
+
