@@ -1,0 +1,30 @@
+.field{
+    width: 500px;
+    height: 500px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.column {
+    width: 150px;
+    height: 425px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: navy;
+}
+
+.border{
+    background-color: navy;
+    height: 425px;
+    width: 3px;
+}
+
+.block{
+    background-color: aliceblue;
+    height: 100px;
+    padding: 20px;
+}
