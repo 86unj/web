@@ -23,6 +23,7 @@ function timer() {
 
 document.getElementById("start").addEventListener("click", function () {
     time = userTime;
+    resetProgress();
     document.getElementById("start").disabled = true;
     thisInterval = setInterval(timer, 1000);// why it doesn't walk with timer()
 });
@@ -36,21 +37,25 @@ stopButton.addEventListener("click", function () {
         stopButton.innerHTML = "stop"
         thisInterval = setInterval(timer, 1000);
     }
-}); 
+});
 
 document.getElementById("reset").addEventListener("click", function () {
     clearInterval(thisInterval);
     time = 5 * 60
     second.innerHTML = time % 60;
     min.innerHTML = parseInt(time / 60);
-    document.getElementById("start").disabled = false;
-    progress.style.width=550+'px';
-    progressWidth=progress.offsetWidth;
+    
+    resetProgress();
 });
 
-function decreaseProgress(){
+function decreaseProgress() {
     let decrementValue;
-    decrementValue= 550 / time
+    decrementValue = 550 / userTime;
     progressWidth -= decrementValue;
-    progress.style.width = progressWidth+'px';
+    progress.style.width = progressWidth + 'px';
+}
+
+function resetProgress() {
+    progress.style.width = 550 + 'px';
+    progressWidth = progress.offsetWidth;
 }
