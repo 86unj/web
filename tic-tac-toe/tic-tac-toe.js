@@ -2,7 +2,6 @@ let elementsArray = document.querySelectorAll(".block");
 let userSelection = []
 let comSelection = []
 let userTurnNO = 0
-let result = 0;
 
 elementsArray.forEach(function (elem) {
     elem.addEventListener("click", function () {
@@ -16,41 +15,48 @@ elementsArray.forEach(function (elem) {
     })
 })
 
-let thisinterval = setInterval(winnerCheck, 1000)
+let thisinterval = setInterval(winnerCheck, 3000)
 
 function winnerCheck() {
-    let one = false, two = false
+    let one = false, two =false
     while (userTurnNO > 2 && !one) {
         if (one = winner(userSelection)) {
             clearInterval(thisinterval)
             alert("You win!!")
         }
-        //else if (two =winner(comselect)){
-        //    alert("com win")
-        // }
+        //else if (two =winner(comSelection)){
+        //    clearInterval(thisinterval)
+        //    alert("You lose :(")
+        //}
+        //else if (userTurnNO>5){
+        //    clearInterval(thisinterval)
+        //    alert("Tie")
+        //}
     }
 }
 
 
-
-
-function comTurn() {
-    let selected = parseInt(userSelection[userTurnNO])
-    let comselect = document.getElementById(selected + 11)
+//function comTurn() {
+//    let selected = parseInt(userSelection[userTurnNO])
+//    let comselect = document.getElementById(selected + 11)
     // alert(selected)
-    if (comselect.innerHTML == "") {
-        comselect.innerHTML = "&#11093"
-        comSelection[userTurnNO] = comselect.id
-    }
-    else {
-
-    }
-}
+//    if (comselect.innerHTML == "") {
+//        comselect.innerHTML = "&#11093"
+//        comSelection[userTurnNO] = comselect.id
+//    }
+//    else {
+//
+//    }
+//}
 
 function winner(array) {
     let i, j
-    let remainCnt, quotCnt, cntOne, cntTwo
+    let remainCnt, quotCnt
     let result = false
+
+    //const isDiag = userSelection.some(function (number) {
+    //    return [0, 11, 22].includes(number) || [2, 11, 20].includes(number);
+    //});
 
     while (result === false) {
         for (j = 0; j < 3; j++) {
@@ -60,20 +66,17 @@ function winner(array) {
                 if (array[i] % 10 === j) {
                     remainCnt++
                 }
-                if (parseInt(array[i] / 10 === j)) {
+                if ((array[i] / 10 === j)) {
                     quotCnt++
                 }
-                if (array[i] === 0 || 11 || 22) {
-                    cntOne++
-                }
-                if (array[i] === 2 || 11 || 20) {
-                    cntTwo++
-                }
             }
-            if (remainCnt || quotCnt || cntOne || cntTwo > 2) {
+            if (remainCnt > 2 || quotCnt > 2) {
                 result = true
             }
         }
+        //if (isDiag){
+        //    result =true
+        //}
     }
-    return result
-}
+return result
+    }
