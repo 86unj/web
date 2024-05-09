@@ -41,11 +41,12 @@ stopButton.addEventListener("click", function () {
 
 document.getElementById("reset").addEventListener("click", function () {
     clearInterval(thisInterval);
-    time = 5 * 60
+    time = userInput * 60
     second.innerHTML = time % 60;
     min.innerHTML = parseInt(time / 60);
     document.getElementById("start").disabled = false;
     resetProgress();
+    stopButton.innerHTML= "stop"
 });
 
 function decreaseProgress() {
