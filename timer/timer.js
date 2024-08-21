@@ -1,52 +1,54 @@
 let second = document.getElementById("sec");
 let minute = document.getElementById("min");
-let stopButton = document.getElementById("stop");
+const stopButton = document.getElementById("stop");
+const startButton = document.getElementById("start");
+const resetButton = document.getElementById("reset");
 let progress = document.getElementById("bar-progress");
 let progressWidth = progress.offsetWidth;
-let time = 0;
+let remainingTime = 0;
 
 let userInput = 5;
 let userTime = userInput * 60;
 
 
-function timer() {
-    time -= 1
-    second.innerHTML = time % 60;
-    minute.innerHTML = parseInt(time / 60);
+function startTimer() {
+    remainingTime -= 1
+    second.textContent = remainingTime % 60;
+    minute.textContent = parseInt(remainingTime / 60);
     decreaseProgress();
-    if (time === 0) {
+    if (remainingTime === 0) {
         clearInterval(thisInterval)
-        document.getElementById("start").disabled = false;
+        startButton.disabled = false;
     }
 }
 
 
-document.getElementById("start").addEventListener("click", function () {
-    time = userTime;
+startButton.addEventListener("click", function () {
+    remainingTime = userTime;
     resetProgress();
-    document.getElementById("start").disabled = true;
+    startButton.disabled = true;
     thisInterval = setInterval(timer, 1000);// why it doesn't walk with timer()
 });
 
 stopButton.addEventListener("click", function () {
-    if (stopButton.innerHTML == "stop") {
+    if (stopButton.textContent == "stop") {
         clearInterval(thisInterval)
-        stopButton.innerHTML = "resume"
+        stopButton.textContent = "resume"
     }
     else {
-        stopButton.innerHTML = "stop"
+        stopButton.textContent = "stop"
         thisInterval = setInterval(timer, 1000);
     }
 });
 
-document.getElementById("reset").addEventListener("click", function () {
+resetButton.addEventListener("click", function () {
     clearInterval(thisInterval);
-    time = userInput * 60
-    second.innerHTML = time % 60;
-    min.innerHTML = parseInt(time / 60);
-    document.getElementById("start").disabled = false;
+    remainingTime = userInput * 60
+    second.textContent = remainingTime % 60;
+    min.textContent = parseInt(remainingTime / 60);
+    startButton.disabled = false;
     resetProgress();
-    stopButton.innerHTML= "stop"
+    stopButton.textContent= "stop"
 });
 
 function decreaseProgress() {
